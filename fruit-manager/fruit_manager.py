@@ -1,12 +1,17 @@
 # # Inventaire de fruits
 
-inventaire = {
-    "bananes": 120,
-    "mangues": 85,
-    "ananas": 45,
-    "noix de coco": 60,
-    "papayes": 30
-}
+import json
+
+def ouvrir_inventaire(path='inventaire.json'):
+    with open(path, 'r', encoding='utf-8') as f:
+        inventaire = json.load(f)
+    return inventaire
+
+def ecrire_inventaire(inventaire, path='inventaire.json'):
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(f, path, ensure_ascii=False, indent=4)
+
+inventaire = ouvrir_inventaire('data/inventaire.json')
 
 def afficher_inventaire(inventaire):
     print("Inventaire actuel de la plantation")

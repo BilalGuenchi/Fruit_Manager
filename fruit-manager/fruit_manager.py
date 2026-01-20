@@ -31,6 +31,7 @@ def afficher_inventaire(inventaire):
 def recolter(inventaire, fruit, quantite):
     inventaire[fruit] = inventaire.get(fruit, 0) + quantite
     print(f"Récolté {quantite} {fruit} supplémentaires")
+    return inventaire
 
 def vendre(inventaire, fruit, quantite, tresorerie):
     if inventaire.get(fruit, 0) >= quantite:
